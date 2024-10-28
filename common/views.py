@@ -23,6 +23,6 @@ def signup(request):
 def page_not_found(request, exception):
     return render(request, 'common/404.html', {})
 
-def page_not_found(request, exception):
+def page_not_found(request):
     return render(request, 'common/500.html', {})
 # Create your views here.
