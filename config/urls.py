@@ -25,5 +25,5 @@ urlpatterns = [
     path('', base_views.index, name='index'),
 ]
 
-handler404 = 'common.views.page_not_found'
-handler500 = 'common.views.page_not_found'
+handler404 = 'common.views.page_not_found404'
+handler500 = 'common.views.page_not_found500'
