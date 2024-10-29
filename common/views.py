@@ -23,11 +23,6 @@ def signup(request):
 def page_not_found(request, exception):
     return render(request, 'common/404.html', {})
 
-def page_not_found500(request):
-    try:
-        return render(request, 'common/500.html', status=500)
-    except Exception as e:
-        print(f"Error rendering 500 page: {e}")  # 로그에 출력
-        return HttpResponse("Internal Server Error", status=500)
+
 
 # Create your views here.

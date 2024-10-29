@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pybo.views import base_views
-from django.conf.urls import handler404, handler500
-from common.views import page_not_found404, page_not_found500
-from django.http import HttpResponse
+from django.conf.urls import handler404
+from common.views import page_not_found
+
 
 from pybo import views
 urlpatterns = [
@@ -30,5 +30,3 @@ urlpatterns = [
 
 handler404 = 'common.views.page_not_found'
 
-def cause_500_error(request):
-    raise Exception("Test Exception")
