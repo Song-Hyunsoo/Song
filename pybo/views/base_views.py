@@ -4,7 +4,7 @@ from django.db.models import Q
 from ..models import Question
 
 def index(request):
-   
+   3/0
     """pybo 목록 출력 """
     page = request.GET.get('page', '1') #페이지
     kw = request.GET.get('kw', '') #검색어
