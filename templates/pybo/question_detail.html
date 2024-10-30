@@ -46,6 +46,9 @@
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text">{{ answer.content|mark }}</div>
+            {% if answer.image %}
+            <img src="{{ answer.image.url }}" alt="Answer Image" style="max-width: 100%; height: auto;">
+            {% endif %}
             <div class="d-flex justify-content-end">
                 {% if answer.modify_date %}
                 <div class="badge bg-light text-dark p-2 text-start mx-3">
@@ -69,7 +72,7 @@
     </div>
     {% endfor %}
     <!-- 답변 등록 -->
-    <form action="{% url 'pybo:answer_create' question.id %}" method="post" class="my-3">
+    <form action="{% url 'pybo:answer_create' question.id %}" method="post" enctype="multipart/form-data" class="my-3">
         {% csrf_token %}
          <!-- 오류표시 Start -->
          {% if form.errors %}
@@ -89,6 +92,10 @@
             <label for="content" class="form-label">답변내용</label>
             <textarea {% if not user.is_authenticated %}disabled{% endif %}
                        name="content" id="content" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">이미지 업로드</label>
+            <input type="file" name="image" id="image" class="form-control">
         </div>
         <input type="submit" value="답변등록" class="btn btn-primary">
     </form>

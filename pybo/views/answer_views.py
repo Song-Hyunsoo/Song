@@ -11,7 +11,7 @@ def answer_create(request, question_id):
     '''답변 등록'''
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":
-        form = AnswerForm(request.POST)
+        form = AnswerForm(request.POST, request.FILES)
         if form.is_valid():
             answer =form.save(commit=False)
             answer.author = request.user # author 속성에 로그인 계정 저장
